@@ -4,7 +4,7 @@ class Voters{
     public static function CreateVoter($stud_id,$firstname,$lastname,$password,$email,$gender,$dob,$address,$phone,$programme)
 	{
         $database = new Database();
-        $sql ="INSERT INTO `evoteapp`.`voters` (`stud_id`, `firstname`, `lastname`, `password`, `email`, `gender`, `dob`, `address`, `phone`, `programme`) VALUES ('$stud_id', '$firstname', '$lastname', '$password', '$email', '$gender', '$dob', '$address', '$phone', '$programme')";
+        $sql ="INSERT INTO `evoteapp`.`evovoters` (`stud_id`, `firstname`, `lastname`, `password`, `email`, `gender`, `dob`, `address`, `phone`, `programme`) VALUES ('$stud_id', '$firstname', '$lastname', '$password', '$email', '$gender', '$dob', '$address', '$phone', '$programme')";
 		$stmt = $database->conn->prepare($sql);
         $result_arry = $stmt->execute(array($stud_id,$firstname,$lastname,$password,$email,$gender,$dob,$address,$phone,$programme));
 		    if($result_arry){ return true;}
@@ -13,7 +13,7 @@ class Voters{
     public static function getAllVoters()
     {
         $database = new Database();
-        $sql ="SELECT v.stud_id,v.firstname,v.lastname,v.email,v.gender,v.dob,v.address,v.phone FROM voters v";
+        $sql ="SELECT v.stud_id,v.firstname,v.lastname,v.email,v.gender,v.dob,v.address,v.phone FROM evovoters v";
         $stmt = $database->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@ class Voters{
     public static function getVoterbyId($stud_id)
     {
         $database = new Database();
-        $sql ="SELECT v.stud_id,v.firstname,v.lastname,v.email,v.gender,v.dob,v.address,v.phone FROM voters v WHERE stud_id =?";
+        $sql ="SELECT v.stud_id,v.firstname,v.lastname,v.email,v.gender,v.dob,v.address,v.phone FROM evovoters v WHERE stud_id =?";
         $stmt = $database->conn->prepare($sql);
         $stmt->execute(array($stud_id));
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -30,7 +30,7 @@ class Voters{
     public static function UpdateVoter($firstname,$lastname,$email,$password,$gender,$programme,$dob,$address,$phone,$stud_id )
     {
         $database = new Database();
-        $sql ="UPDATE `voters` SET `firstname` = ? , `lastname` = ? ,`email` = ? , `password` = ?, `gender` = ?,`address` = ?,`phone` = ? WHERE `stud_id` = ?";
+        $sql ="UPDATE `evovoters` SET `firstname` = ? , `lastname` = ? ,`email` = ? , `password` = ?, `gender` = ?,`address` = ?,`phone` = ? WHERE `stud_id` = ?";
              $stmt = $database->conn->prepare($sql);
             $result_arry = $stmt->execute(array($firstname,$lastname,$email,$password,$gender,$dob,$address,$phone,$stud_id));
             if($result_arry){ return true;}
@@ -40,7 +40,7 @@ class Voters{
     public static function deleteVoterbyId($stud_id)
     {
         $database = new Database();
-        $sql = "DELETE FROM voters WHERE stud_id =?";
+        $sql = "DELETE FROM evovoters WHERE stud_id =?";
              $stmt = $database->conn->prepare($sql);
             $result_arry = $stmt->execute(array($stud_id));
             if($result_arry){ return true;}

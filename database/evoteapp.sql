@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 12:38 PM
+-- Generation Time: Jul 03, 2020 at 12:48 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `evoadmin`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `evoadmin` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -39,19 +39,19 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `evoadmin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `fullname`, `email`, `phone`, `date_aadded`) VALUES
+INSERT INTO `evoadmin` (`id`, `username`, `password`, `fullname`, `email`, `phone`, `date_aadded`) VALUES
 (1, 'Admin', 'cfb545934516467ef3467d05dfb4a395', 'Innocent Tauzeni', 'admin@test.co.uk', '0774914150', '2020-04-01 08:52:14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `candidate`
+-- Table structure for table `evocandidate`
 --
 
-CREATE TABLE `candidate` (
+CREATE TABLE `evocandidate` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
@@ -66,10 +66,10 @@ CREATE TABLE `candidate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `candidate`
+-- Dumping data for table `evocandidate`
 --
 
-INSERT INTO `candidate` (`id`, `firstname`, `lastname`, `email`, `programme`, `gender`, `dob`, `address`, `phone`, `imageurl`, `roleID`) VALUES
+INSERT INTO `evocandidate` (`id`, `firstname`, `lastname`, `email`, `programme`, `gender`, `dob`, `address`, `phone`, `imageurl`, `roleID`) VALUES
 (1, 'Innocent', 'Tauzeni', 'mediafreesonix@gmail.com', 'Bsc Computer Science', 'M', '1991-12-12', '3138 Aerodrome, Bindura', '263774914150', './img/cntpics/15857390495991.jpg', 1),
 (2, 'Ashley', 'Nelson', 'mediafreesonix@gmail.com', 'Bsc Commerce', 'F', '1998-12-21', '4538 Aerodrome, Bindura', '7784447777333', './img/cntpics/15857400021495.jpg', 1),
 (3, 'Maideyima', 'Nyasha', 'mediafreesonix@gmail.com', 'Bsc Social Work', 'F', '1989-03-12', '3138 Aerodrome, Bindura', '77491489', './img/cntpics/15857410372310.jpg', 1),
@@ -86,10 +86,10 @@ INSERT INTO `candidate` (`id`, `firstname`, `lastname`, `email`, `programme`, `g
 -- --------------------------------------------------------
 
 --
--- Table structure for table `castvote`
+-- Table structure for table `evocastvote`
 --
 
-CREATE TABLE `castvote` (
+CREATE TABLE `evocastvote` (
   `id` int(11) NOT NULL,
   `cid` int(11) NOT NULL,
   `stid` varchar(8) NOT NULL,
@@ -101,10 +101,10 @@ CREATE TABLE `castvote` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `elections`
+-- Table structure for table `evoelections`
 --
 
-CREATE TABLE `elections` (
+CREATE TABLE `evoelections` (
   `id` int(11) NOT NULL,
   `electname` varchar(255) DEFAULT NULL,
   `start_time` time DEFAULT NULL,
@@ -116,19 +116,19 @@ CREATE TABLE `elections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `elections`
+-- Dumping data for table `evoelections`
 --
 
-INSERT INTO `elections` (`id`, `electname`, `start_time`, `stop_time`, `status`, `date_aadded`, `stopTimeDate`, `dateAdded`) VALUES
+INSERT INTO `evoelections` (`id`, `electname`, `start_time`, `stop_time`, `status`, `date_aadded`, `stopTimeDate`, `dateAdded`) VALUES
 (1, 'SRC ELECTIONS', '10:30:00', '10:35:00', 'In Progress', '2020-07-03 10:35:00', NULL, '2020-07-03 10:27:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Table structure for table `evoroles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE `evoroles` (
   `id` int(11) NOT NULL,
   `code` char(4) NOT NULL,
   `name` varchar(30) NOT NULL,
@@ -136,10 +136,10 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `roles`
+-- Dumping data for table `evoroles`
 --
 
-INSERT INTO `roles` (`id`, `code`, `name`, `description`) VALUES
+INSERT INTO `evoroles` (`id`, `code`, `name`, `description`) VALUES
 (1, 'PR', 'President', 'President of the SRC'),
 (2, 'VP', 'Vice President', 'Vice President'),
 (3, 'SEC', 'Secretary', 'Secretary'),
@@ -148,10 +148,10 @@ INSERT INTO `roles` (`id`, `code`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `voters`
+-- Table structure for table `evovoters`
 --
 
-CREATE TABLE `voters` (
+CREATE TABLE `evovoters` (
   `stud_id` varchar(8) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
@@ -167,10 +167,10 @@ CREATE TABLE `voters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `voters`
+-- Dumping data for table `evovoters`
 --
 
-INSERT INTO `voters` (`stud_id`, `firstname`, `lastname`, `password`, `email`, `gender`, `dob`, `address`, `phone`, `programme`, `img_url`, `status`) VALUES
+INSERT INTO `evovoters` (`stud_id`, `firstname`, `lastname`, `password`, `email`, `gender`, `dob`, `address`, `phone`, `programme`, `img_url`, `status`) VALUES
 ('B1440405', 'innocent', 'tauzeni', 'e10adc3949ba59abbe56e057f20f883e', 'inn@gmail.com', 'M', '12-12-1992', 'Main', '033', 'BSCMAK', 'img/noImage.png', 'Pending'),
 ('B1440406', 'Tayana', 'Tauzeni', 'e10adc3949ba59abbe56e057f20f883e', 'r@main.com', 'F', '12-12-2011', 'MA', '22', 'NAKK', 'img/noImage.png', 'Pending'),
 ('B1440407', 'Manu', 'Nyara', 'e10adc3949ba59abbe56e057f20f883e', 'e@mail.com', 'F', '12-12-2011', 'MN', '09888', 'MSK', 'img/noImage.png', 'Pending'),
@@ -183,44 +183,44 @@ INSERT INTO `voters` (`stud_id`, `firstname`, `lastname`, `password`, `email`, `
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `evoadmin`
 --
-ALTER TABLE `admin`
+ALTER TABLE `evoadmin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `candidate`
+-- Indexes for table `evocandidate`
 --
-ALTER TABLE `candidate`
+ALTER TABLE `evocandidate`
   ADD PRIMARY KEY (`id`),
   ADD KEY `RoleKey` (`roleID`);
 
 --
--- Indexes for table `castvote`
+-- Indexes for table `evocastvote`
 --
-ALTER TABLE `castvote`
+ALTER TABLE `evocastvote`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cidKey` (`cid`),
   ADD KEY `stidKey` (`stid`),
   ADD KEY `roidkey` (`roleid`);
 
 --
--- Indexes for table `elections`
+-- Indexes for table `evoelections`
 --
-ALTER TABLE `elections`
+ALTER TABLE `evoelections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roles`
+-- Indexes for table `evoroles`
 --
-ALTER TABLE `roles`
+ALTER TABLE `evoroles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `voters`
+-- Indexes for table `evovoters`
 --
-ALTER TABLE `voters`
+ALTER TABLE `evovoters`
   ADD PRIMARY KEY (`stud_id`);
 
 --
@@ -228,33 +228,33 @@ ALTER TABLE `voters`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `evoadmin`
 --
-ALTER TABLE `admin`
+ALTER TABLE `evoadmin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `candidate`
+-- AUTO_INCREMENT for table `evocandidate`
 --
-ALTER TABLE `candidate`
+ALTER TABLE `evocandidate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `castvote`
+-- AUTO_INCREMENT for table `evocastvote`
 --
-ALTER TABLE `castvote`
+ALTER TABLE `evocastvote`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `elections`
+-- AUTO_INCREMENT for table `evoelections`
 --
-ALTER TABLE `elections`
+ALTER TABLE `evoelections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT for table `evoroles`
 --
-ALTER TABLE `roles`
+ALTER TABLE `evoroles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -262,18 +262,18 @@ ALTER TABLE `roles`
 --
 
 --
--- Constraints for table `candidate`
+-- Constraints for table `evocandidate`
 --
-ALTER TABLE `candidate`
-  ADD CONSTRAINT `RoleKey` FOREIGN KEY (`roleID`) REFERENCES `roles` (`id`);
+ALTER TABLE `evocandidate`
+  ADD CONSTRAINT `RoleKey` FOREIGN KEY (`roleID`) REFERENCES `evoroles` (`id`);
 
 --
--- Constraints for table `castvote`
+-- Constraints for table `evocastvote`
 --
-ALTER TABLE `castvote`
-  ADD CONSTRAINT `cidKey` FOREIGN KEY (`cid`) REFERENCES `candidate` (`id`),
-  ADD CONSTRAINT `roidkey` FOREIGN KEY (`roleid`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `stidKey` FOREIGN KEY (`stid`) REFERENCES `voters` (`stud_id`);
+ALTER TABLE `evocastvote`
+  ADD CONSTRAINT `cidKey` FOREIGN KEY (`cid`) REFERENCES `evocandidate` (`id`),
+  ADD CONSTRAINT `roidkey` FOREIGN KEY (`roleid`) REFERENCES `evoroles` (`id`),
+  ADD CONSTRAINT `stidKey` FOREIGN KEY (`stid`) REFERENCES `evovoters` (`stud_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -16,7 +16,7 @@
     }
     else{
       $database = new Database();
-      $sql ="SELECT * FROM voters WHERE stud_id =:stud_id  AND `password` =:password";
+      $sql ="SELECT * FROM evovoters WHERE stud_id =:stud_id  AND `password` =:password";
       $stmt = $database->conn->prepare($sql);
       $stmt->execute(array(
                     ':stud_id' => $stud_id,

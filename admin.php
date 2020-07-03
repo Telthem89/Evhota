@@ -8,7 +8,7 @@
     $username = htmlentities(strip_tags(trim($_POST['username'])), ENT_QUOTES, 'UTF-8');
     $password = htmlentities(trim(md5($_POST['password'])), ENT_QUOTES, 'UTF-8');
     #check database
-      $sql ="SELECT * FROM admin WHERE username =:username  AND password =:password";
+      $sql ="SELECT * FROM evoadmin WHERE username =:username  AND password =:password";
        $stmt = $database->conn->prepare($sql);
         $stmt->execute(array(
                     ':username' => $username,

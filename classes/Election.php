@@ -12,7 +12,7 @@ class Election
 	{
 		$database = new Database();
 		$status = "In Progress";
-		$sql ="INSERT INTO elections (`electname`,`start_time`,`stop_time`,`status`,`date_aadded`) VALUES ('$electionName','$startTime','$endtime','$status','$date_aadded')";
+		$sql ="INSERT INTO evoelections (`electname`,`start_time`,`stop_time`,`status`,`date_aadded`) VALUES ('$electionName','$startTime','$endtime','$status','$date_aadded')";
 		    $stmt = $database->conn->prepare($sql);
 		    $result_arry = $stmt->execute(array($electionName,$startTime,$endtime,$status,$date_aadded));
 		    if($result_arry){ return true;}
@@ -22,7 +22,7 @@ class Election
 	public static function getElection()
 	{
 		$database = new Database();
-		$sql = "SELECT `id`,`electname`,`start_time`,`stop_time`,`status`,`date_aadded` FROM  elections";
+		$sql = "SELECT `id`,`electname`,`start_time`,`stop_time`,`status`,`date_aadded` FROM  evoelections";
 		$stmt = $database->conn->prepare($sql);
 		$result_arry = $stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@ class Election
 	public static function getElectionStatus()
 	{
 		$database = new Database();
-		$sql = "SELECT `id`,`electname`,`start_time`,`stop_time`,`status`,`date_aadded`  FROM  elections";
+		$sql = "SELECT `id`,`electname`,`start_time`,`stop_time`,`status`,`date_aadded`  FROM  evoelections";
 		$stmt = $database->conn->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ class Election
 	public static function stopElection($eid)
       {
       	$database = new Database();
-        $sql ="UPDATE `elections` SET `status` = 'Completed' , `stopTimeDate` = now()  WHERE `id` = ?";
+        $sql ="UPDATE `evoelections` SET `status` = 'Completed' , `stopTimeDate` = now()  WHERE `id` = ?";
          $stmt = $database->conn->prepare($sql);
         $result_arry = $stmt->execute(array($eid));
         if($result_arry){ return true;}
@@ -52,7 +52,7 @@ class Election
      public static function getTimeofElectiontoKickoff()
       {
       	$database = new Database();
-        $sql ="SELECT timestampdiff(HOUR,NOW(),c.date_aadded) AS totalLeft from elections c";
+        $sql ="SELECT timestampdiff(HOUR,NOW(),c.date_aadded) AS totalLeft from evoelections c";
         $stmt = $database->conn->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
